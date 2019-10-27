@@ -11,6 +11,7 @@ def multilaterate(distances):
     print('coordinate', coordinate)
     l = len(coordinate)
     S = sum(dist)
+
     W = [((l - 1) * S) / (S - w) for w in dist]
     x0 = sum([W[i] * coordinate[i] for i in range(l)])
     rst = minimize(error, x0, args=(coordinate, dist), method='Nelder-Mead').x
