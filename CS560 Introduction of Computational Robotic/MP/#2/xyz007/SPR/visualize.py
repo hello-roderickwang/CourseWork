@@ -5,6 +5,8 @@ from matplotlib.path import Path
 import matplotlib.patches as patches
 import numpy as np
 
+import spr
+
 '''
 Set up matplotlib to create a plot with an empty square
 '''
@@ -17,7 +19,7 @@ def setupPlot():
     return fig, ax
 
 '''
-Make a patch for a single pology 
+Make a patch for a single pology
 '''
 def createPolygonPatch(polygon):
     verts = []
@@ -35,7 +37,7 @@ def createPolygonPatch(polygon):
     patch = patches.PathPatch(path, facecolor='gray', lw=1)
 
     return patch
-    
+
 '''
 Make a patch for the robot
 '''
@@ -55,25 +57,25 @@ def createPolygonPatchForRobot(polygon):
     patch = patches.PathPatch(path, facecolor='gray', lw=1)
 
     return patch
-    
+
 
 '''
-Render polygon obstacles  
+Render polygon obstacles
 '''
 def drawPolygons(polygons, fig, ax):
     for p in range(0, len(polygons)):
         patch = createPolygonPatch(polygons[p])
-        ax.add_patch(patch)    
+        ax.add_patch(patch)
 
 
 
 if __name__ == "__main__":
-    
+
     # Retrive file name for input data
     if(len(sys.argv) < 2):
         print("Please provide input tfile: python visualize.py [env-file]")
         exit()
-    
+
     filename = sys.argv[1]
 
     # Read data and parse polygons
@@ -97,9 +99,22 @@ if __name__ == "__main__":
     # Draw the polygons
     drawPolygons(polygons, fig, ax)
 
+    print('print polygons:')
+    print(polygons)
+
     # Extra visualization elements goes here
     # ===== delete the following line before you make some changes =====
+    # ax.plot()
+
+    # vertexMap, updatedALMap, start, goal = spr.get_info()
+    #
+    # for i in range(-1, 13):
+    #     path = Path([vertexMap[i], vertexMap[updatedALMap[i][0]]], [Path.MOVETO, Path.LINETO])
+    #     patch = patches.PathPatch(path, facecolor='green', lw=1)
+    #     ax.add_patch(patch)
+
     ax.plot()
+
     # ======= delete the above line before you make some changes =======
-    
+
     plt.show()
