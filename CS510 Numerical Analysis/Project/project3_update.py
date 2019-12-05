@@ -58,15 +58,15 @@ def poewr_method(A,n,it):
     for k in range(it):    #interate
         x = np.dot(M,x)
 
-    print("\n solve Mx=x, x is:")
-    print(x)
-    print('\n')
+    # print("\n solve Mx=x, x is:")
+    # print(x)
+    # print('\n')
 
-    distance = 0
-    a = np.dot(M, x)
-    print("a is:")
-    print(a)
-    return abs(a.sum() - x.sum())
+    # distance = 0
+    # a = np.dot(M, x)
+    # print("a is:")
+    # print(a)
+    # return abs(a.sum() - x.sum())
 
 
 
@@ -127,9 +127,9 @@ def generate_graph_symmetric(n):
             for j in range(i,n):
                 if A[i][j] != A[j][i]:
                     valid = 0
-    print("\n original matrix is:")        
-    print(A)
-    print('\n')
+    # print("\n original matrix is:")
+    # print(A)
+    # print('\n')
     return A
 
 ############################################
@@ -142,9 +142,9 @@ def power_method_realmat(A,n):
     
     #M = np.triu(M)
     #M += M.T - np.diag(M.diagonal())
-    print("M is :")
-    print(M)
-    print('\n')
+    # print("M is :")
+    # print(M)
+    # print('\n')
     x = np.random.rand(n,1)
     x /= sum(x)
     '''
@@ -155,14 +155,14 @@ def power_method_realmat(A,n):
     #a = sum(x)
     #for i in range(n):
     #    x[i] = x[i] / a
-    print("\n the primal is:")
-    print(x)
+    # print("\n the primal is:")
+    # print(x)
     for k in range(200):
         x = np.dot(M,x)
-    print('\n')
+    # print('\n')
     x /= sum(x)
-    print("\n the final is:")
-    print(x)
+    # print("\n the final is:")
+    # print(x)
 
 
 ############################################
@@ -235,13 +235,13 @@ def triangle(A,n):
     # print("\n M * alfa is:")
     # print(a)
     #print(sum(np.dot(M + np.eye(n), alfa)))
-    distance = 0
-    for i in range(n):
-        distance += abs(a[i][0] - alfa[i][0])
-
-    # print("\n the error is:")
-    # print(distance)
-    return distance
+    # distance = 0
+    # for i in range(n):
+    #     distance += abs(a[i][0] - alfa[i][0])
+    #
+    # # print("\n the error is:")
+    # # print(distance)
+    # return distance
 
 
 
@@ -271,12 +271,12 @@ def Jacobi(A,n,it):    #Jacobi algorithm
 
     # print(f"\n the result of {count} iteration is:")
     # print(y)
-    result = np.dot(M,x)
-    distance = 0
-    for i in range(n):
-        distance += abs(result[0,i])
-    # print(f"the error of Jacobi iteration is {distance}")
-    return distance
+    # result = np.dot(M,x)
+    # distance = 0
+    # for i in range(n):
+    #     distance += abs(result[0,i])
+    # # print(f"the error of Jacobi iteration is {distance}")
+    # return distance
 
 ############################################
 #comparison Gauss-Seidel
@@ -303,13 +303,13 @@ def Gauss_Seidel(A,n,it):    #Gauss_Seidel algorithm
 
     # print(f"\n the result of {count} iteration is:")
     # print(x)
-    result = np.dot(M,x)
-    distance = 0
-    for i in range(n):
-        distance += abs(result[0,i])
-
-    # print(f"the error of Gauss_Sdidel is {distance}")
-    return distance
+    # result = np.dot(M,x)
+    # distance = 0
+    # for i in range(n):
+    #     distance += abs(result[0,i])
+    #
+    # # print(f"the error of Gauss_Sdidel is {distance}")
+    # return distance
 
 
 
@@ -342,13 +342,13 @@ def SOR(A,n,it):
 
     # print(f"\n the result of {count} iteration is:")
     # print(y)
-    result = np.dot(M,x)
-    distance = 0
-    for i in range(n):
-        distance += abs(result[0,i])
-
-    # print(f"the error of SOR iteration is {distance}")
-    return distance
+    # result = np.dot(M,x)
+    # distance = 0
+    # for i in range(n):
+    #     distance += abs(result[0,i])
+    #
+    # # print(f"the error of SOR iteration is {distance}")
+    # return distance
 
 
 
@@ -402,9 +402,10 @@ print("\n############# This is question 3 #################\n\n")
 
 iter = 50
 time_now = 0
-time_limit = 10
-dim = 3
+time_limit = 1
+dim = 20
 start_dim = dim
+dim -= 1
 time_array1 = np.array([])
 error_array1 = np.array([])
 time_array2 = np.array([])
@@ -413,76 +414,112 @@ time_array3 = np.array([])
 error_array3 = np.array([])
 time_array4 = np.array([])
 error_array4 = np.array([])
+var_array1 = np.array([])
+var_array2 = np.array([])
+var_array3 = np.array([])
+var_array4 = np.array([])
+log_array1 = np.array([])
+log_array2 = np.array([])
+log_array3 = np.array([])
+log_array4 = np.array([])
 error = 0
-while time_now<=time_limit:
-    for i in range(10):
+iter_num = 0
+while time_now<=time_limit and iter_num<=20:
+    iter_num += 1
+    dim += 1
+    time_tem1 = np.array([])
+    time_tem2 = np.array([])
+    time_tem3 = np.array([])
+    time_tem4 = np.array([])
+    error_tem1 = np.array([])
+    error_tem2 = np.array([])
+    error_tem3 = np.array([])
+    error_tem4 = np.array([])
+    for i in range(100):
         n = dim
-        time_tem1 = np.array([])
-        time_tem2 = np.array([])
-        time_tem3 = np.array([])
-        time_tem4 = np.array([])
-        error_tem1 = np.array([])
-        error_tem2 = np.array([])
-        error_tem3 = np.array([])
-        error_tem4 = np.array([])
         A = generate_graph(n)
         B = copy.deepcopy(A)
         time_start1 = time.time()
-        error1 = triangle(B, n)
+        # triangle(B, n)
+        poewr_method(A, n, iteration)
         time_end1 = time.time()
         time_start2 = time.time()
-        error2 = Jacobi(A,n,iteration)
+        Jacobi(A,n,iteration)
         time_end2 = time.time()
         time_start3 = time.time()
-        error3 = Gauss_Seidel(A,n,iteration)
+        Gauss_Seidel(A,n,iteration)
         time_end3 = time.time()
         time_start4 = time.time()
-        error4 = SOR(A,n,iteration)
+        SOR(A,n,iteration)
         time_end4 = time.time()
-        print('time: ', time_end1-time_start1)
+        # print('time: ', time_end1-time_start1)
         time_tem1 = np.append(time_tem1, time_end1-time_start1)
-        error_tem1 = np.append(error_tem1, error1)
+        # error_tem1 = np.append(error_tem1, error1)
         time_tem2 = np.append(time_tem2, time_end2 - time_start2)
-        error_tem2 = np.append(error_tem2, error2)
+        # # error_tem2 = np.append(error_tem2, error2)
         time_tem3 = np.append(time_tem3, time_end3 - time_start3)
-        error_tem3 = np.append(error_tem3, error3)
+        # # error_tem3 = np.append(error_tem3, error3)
         time_tem4 = np.append(time_tem4, time_end4 - time_start4)
-        error_tem4 = np.append(error_tem4, error4)
+        # # error_tem4 = np.append(error_tem4, error4)
     print('dim: ', dim)
     time_array1 = np.append(time_array1, np.mean(time_tem1))
-    error_array1 = np.append(error_array1, np.mean(error_tem1))
+    var_array1 = np.append(var_array1, np.var(time_tem1))
+    log_array1 = np.append(log_array1, np.mean(np.log(time_tem1)))
+    # print('time_tem1: ', time_tem1)
+    # error_array1 = np.append(error_array1, np.sum(error_tem1)/20)
     time_array2 = np.append(time_array2, np.mean(time_tem2))
-    error_array2 = np.append(error_array2, np.mean(error_tem2))
+    var_array2 = np.append(var_array2, np.var(time_tem2))
+    log_array2 = np.append(log_array2, np.mean(np.log(time_tem2)))
+    # # error_array2 = np.append(error_array2, np.sum(error_tem2)/20)
     time_array3 = np.append(time_array3, np.mean(time_tem3))
-    error_array3 = np.append(error_array3, np.mean(error_tem3))
+    var_array3 = np.append(var_array3, np.var(time_tem3))
+    log_array3 = np.append(log_array3, np.mean(np.log(time_tem3)))
+    # # error_array3 = np.append(error_array3, np.sum(error_tem3)/20)
     time_array4 = np.append(time_array4, np.mean(time_tem4))
-    error_array4 = np.append(error_array4, np.mean(error_tem4))
-    dim += 1
+    var_array4 = np.append(var_array4, np.var(time_tem4))
+    log_array4 = np.append(log_array4, np.mean(np.log(time_tem4)))
+    # # error_array4 = np.append(error_array4, np.sum(error_tem4)/20)
+    # dim += 1
     time_now = np.mean(time_tem1)
 plt.figure(1)
 plt.plot(range(start_dim, len(time_array1)+start_dim), time_array1, 'r')
-plt.plot(range(start_dim, len(time_array1)+start_dim), time_array1, 'ro')
+# plt.plot(range(start_dim, len(time_array1)+start_dim), time_array1, 'ro')
 plt.plot(range(start_dim, len(time_array2)+start_dim), time_array2, 'g')
-plt.plot(range(start_dim, len(time_array2)+start_dim), time_array2, 'go')
+# # plt.plot(range(start_dim, len(time_array2)+start_dim), time_array2, 'go')
 plt.plot(range(start_dim, len(time_array3)+start_dim), time_array3, 'b')
-plt.plot(range(start_dim, len(time_array3)+start_dim), time_array3, 'bo')
+# # plt.plot(range(start_dim, len(time_array3)+start_dim), time_array3, 'bo')
 plt.plot(range(start_dim, len(time_array4)+start_dim), time_array4, 'y')
-plt.plot(range(start_dim, len(time_array4)+start_dim), time_array4, 'yo')
+# # plt.plot(range(start_dim, len(time_array4)+start_dim), time_array4, 'yo')
 plt.xlabel('Matrix Size')
 plt.ylabel('Running Time (S)')
 plt.title('Running Time VS Matrix Size')
 plt.figure(2)
-plt.plot(range(start_dim, len(time_array1)+start_dim), error_array1, 'r')
-plt.plot(range(start_dim, len(time_array1)+start_dim), error_array1, 'ro')
-plt.plot(range(start_dim, len(time_array2)+start_dim), error_array2, 'g')
-plt.plot(range(start_dim, len(time_array2)+start_dim), error_array2, 'go')
-plt.plot(range(start_dim, len(time_array3)+start_dim), error_array3, 'b')
-plt.plot(range(start_dim, len(time_array3)+start_dim), error_array3, 'bo')
-plt.plot(range(start_dim, len(time_array4)+start_dim), error_array4, 'y')
-plt.plot(range(start_dim, len(time_array4)+start_dim), error_array4, 'yo')
+plt.plot(range(start_dim, len(time_array1)+start_dim), var_array1, 'r')
+plt.plot(range(start_dim, len(time_array2)+start_dim), var_array2, 'g')
+plt.plot(range(start_dim, len(time_array3)+start_dim), var_array3, 'b')
+plt.plot(range(start_dim, len(time_array4)+start_dim), var_array4, 'y')
+# plt.plot(range(start_dim, len(time_array1)+start_dim), var_array, 'ro')
+# plt.plot(range(start_dim, len(time_array2)+start_dim), error_array2, 'g')
+# # plt.plot(range(start_dim, len(time_array2)+start_dim), error_array2, 'go')
+# plt.plot(range(start_dim, len(time_array3)+start_dim), error_array3, 'b')
+# # plt.plot(range(start_dim, len(time_array3)+start_dim), error_array3, 'bo')
+# plt.plot(range(start_dim, len(time_array4)+start_dim), error_array4, 'y')
+# # plt.plot(range(start_dim, len(time_array4)+start_dim), error_array4, 'yo')
 plt.xlabel('Matrix Size')
-plt.ylabel('Running Error')
-plt.title('Running Error VS Matrix Size')
+plt.ylabel('Variance')
+plt.title('Variance VS Matrix Size')
+plt.figure(3)
+plt.plot(range(start_dim, len(time_array1)+start_dim), log_array1, 'r')
+# plt.plot(range(start_dim, len(time_array1)+start_dim), time_array1, 'ro')
+plt.plot(range(start_dim, len(time_array2)+start_dim), log_array2, 'g')
+# # plt.plot(range(start_dim, len(time_array2)+start_dim), time_array2, 'go')
+plt.plot(range(start_dim, len(time_array3)+start_dim), log_array3, 'b')
+# # plt.plot(range(start_dim, len(time_array3)+start_dim), time_array3, 'bo')
+plt.plot(range(start_dim, len(time_array4)+start_dim), log_array4, 'y')
+# # plt.plot(range(start_dim, len(time_array4)+start_dim), time_array4, 'yo')
+plt.xlabel('Matrix Size')
+plt.ylabel('log(Running Time (S))')
+plt.title('log(Running Time) VS Matrix Size')
 plt.show()
 
 

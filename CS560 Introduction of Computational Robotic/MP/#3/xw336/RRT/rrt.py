@@ -6,6 +6,22 @@ import matplotlib.patches as patches
 import numpy as np
 
 '''
+Self-defined functions
+'''
+def dist_p2p(a, b):
+    return np.sqrt((b[1]-a[1])**2+(b[0]-a[0])**2)
+
+def dist_p2l(p, lp1, lp2):
+    # dist = abs((y2-y1)x0-(x2-x1)y0+x2*y1-y2*x1)/sqrt((y2-y1)^2+(x2-x1)^2)
+    return np.abs((lp2[1]-lp1[1])*p[0]-(lp2[0]-lp1[0])*p[1]+lp2[0]*lp1[1]-lp2[1]*lp1[0])/np.sqrt((lp2[1]-lp1[1])**2+(lp2[0]-lp1[0])**2)
+
+def get_point_on_line(p, lp1, lp2):
+    a = lp2[1] - lp1[1]
+    b = lp2[0] - lp1[0]
+    c = lp1[0]*(lp2[1]-lp1[1])+lp1[1]*(lp2[0]-lp1[0])
+    return ((b*(b*p[0]-a*p[1])-a*c)/(a**2+b**2), (a*(-b*p[0]+a*p[1])-b*c)/(a**2+b**2))
+
+'''
 Set up matplotlib to create a plot with an empty square
 '''
 def setupPlot():
@@ -37,7 +53,7 @@ def createPolygonPatch(polygon, color):
     patch = patches.PathPatch(path, facecolor=color, lw=1)
 
     return patch
-    
+
 
 '''
 Render the problem  
@@ -45,12 +61,12 @@ Render the problem
 def drawProblem(robotStart, robotGoal, polygons):
     _, ax = setupPlot()
     patch = createPolygonPatch(robotStart, 'green')
-    ax.add_patch(patch)    
+    ax.add_patch(patch)
     patch = createPolygonPatch(robotGoal, 'red')
-    ax.add_patch(patch)    
+    ax.add_patch(patch)
     for p in range(0, len(polygons)):
         patch = createPolygonPatch(polygons[p], 'gray')
-        ax.add_patch(patch)    
+        ax.add_patch(patch)
     plt.show()
 
 '''
@@ -59,9 +75,17 @@ Grow a simple RRT
 def growSimpleRRT(points):
     newPoints = {}
     adjListMap = {}
-    
+
     # Your code goes here
-    
+
+    for i in range(len(points)):
+        min_p2p = 20
+        pos = 0
+        for j in range(len(adjListMap)):
+            if dist_p2p(points[i], adjListMap[j])<min_p2p:
+                min_p2p = dist_p2p(points[i], adjListMap[j])
+                pos = j
+
     return newPoints, adjListMap
 
 '''
@@ -69,7 +93,7 @@ Perform basic search
 '''
 def basicSearch(tree, start, goal):
     path = []
-    
+
     # Your code goes here. As the result, the function should
     # return a list of vertex labels, e.g.
     #
@@ -77,7 +101,7 @@ def basicSearch(tree, start, goal):
     #
     # in which 23 would be the label for the start and 37 the
     # label for the goal.
-    
+
     return path
 
 '''
@@ -96,7 +120,7 @@ Collision checking
 def isCollisionFree(robot, point, obstacles):
 
     # Your code goes here.
-    
+
     return False
 
 '''
@@ -108,7 +132,7 @@ def RRT(robot, obstacles, startPoint, goalPoint):
     tree = dict()
     path = []
     # Your code goes here.
-    
+
     return points, tree, path
 
 def main(filename, x1, y1, x2, y2, display=''):
@@ -170,7 +194,7 @@ def main(filename, x1, y1, x2, y2, display=''):
     print("The input points are:")
     print(str(points))
     print("")
-    
+
     points, adjListMap = growSimpleRRT(points)
     print("")
     print("The new points are:")
@@ -191,14 +215,14 @@ def main(filename, x1, y1, x2, y2, display=''):
 
     # Your visualization code 
     if display == 'display':
-        displayRRTandPath(points, adjListMap, path) 
+        displayRRTandPath(points, adjListMap, path)
 
     # Solve a real RRT problem
     points, adjListMap, path = RRT(robot, obstacles, (x1, y1), (x2, y2))
-    
+
     # Your visualization code 
     if display == 'display':
-        displayRRTandPath(points, adjListMap, path, robotStart, robotGoal, obstacles) 
+        displayRRTandPath(points, adjListMap, path, robotStart, robotGoal, obstacles)
 
 
 if __name__ == "__main__":
@@ -206,7 +230,7 @@ if __name__ == "__main__":
     if(len(sys.argv) < 6):
         print("Five arguments required: python spr.py [env-file] [x1] [y1] [x2] [y2]")
         exit()
-    
+
     filename = sys.argv[1]
     x1 = float(sys.argv[2])
     y1 = float(sys.argv[3])

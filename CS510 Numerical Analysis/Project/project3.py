@@ -43,7 +43,7 @@ def stochasticmatrix(matrix):
 # queston2
 ###############################################
 def power_method(A, n, round):
-    time_start = time.time()
+    # time_start = time.time()
     e = np.ones((n, 1))  # column vector full with 1
     e_t = e.T
     M = d * stochasticmatrix(A) + (1 - d) * ((e * e_t) / n)  # calculate M
@@ -56,8 +56,8 @@ def power_method(A, n, round):
     #	x[i] = x[i] / a
     # print("\n the primal x is:")
     # print(x)
-    error_array = np.array([])
-    x_old = 0
+    # error_array = np.array([])
+    # x_old = 0
     for k in range(round):  # interate
         x = np.dot(M, x)
         x /= (sum(x))
@@ -67,17 +67,17 @@ def power_method(A, n, round):
         # error_array = np.append(error_array, np.mean(error))
         # error_array = np.append(error_array, np.var(x))
         # x_old = x
-        a = np.dot(M, x)
-        error_array = np.append(error_array, abs(a.sum() - x.sum()))
+        # a = np.dot(M, x)
+        # error_array = np.append(error_array, abs(a.sum() - x.sum()))
     # x /= (sum(x))
     # print("\n solve Mx=x, x is:")
     # print(x)
     # print('\n')
-    time_end = time.time()
+    # time_end = time.time()
     # error = compute_error(x, M)
     # error_array = 0
     # a = np.dot(M, x)
-    return time_end-time_start, error_array
+    # return time_end-time_start
 
 
 ###############################################
@@ -144,7 +144,7 @@ def generate_graph_symmetric(n):
 # use power method to iterate in question2
 ############################################
 def power_method_realmat(A, n):
-    time_start = time.time()
+    # time_start = time.time()
     e = np.ones((n, 1))
     e_t = e.T
     M = d * A + (1 - d) * ((e * e_t) / n)
@@ -172,10 +172,10 @@ def power_method_realmat(A, n):
     x /= sum(x)
     # print("\n the final is:")
     # print(x)
-    time_end = time.time()
+    # time_end = time.time()
     # error = compute_error(x, M)
-    error = 0
-    return time_end-time_start, np.mean(error)
+    # error = 0
+    # return time_end-time_start, np.mean(error)
 
 
 ############################################
@@ -374,106 +374,110 @@ G = np.array([[0, 1 / 2, 1 / 2, 0, 0, 0],
               [0, 0, 0, 1 / 2, 0, 1 / 2],
               [0, 0, 0, 1, 0, 0]])
 
-print("\n############# This is question 1 #################\n")
+# print("\n############# This is question 1 #################\n")
 # A = generate_graph(n)
 # B = copy.deepcopy(A)
 # power_method(A, n)
 
 # Test for running time
 
-time_array = np.array([])
-error_array = np.array([])
-matrix_size = 50 #50
-iteration_num = 1
-iter_round = 10
-for i in range(iteration_num):
-    A = generate_graph(matrix_size)
-    B = copy.deepcopy(A)
-    time_diff, error_array = power_method(A, matrix_size, iter_round)
-    # print('time cost: ', time_diff)
-    time_array = np.append(time_array, time_diff)
-    # error_array = np.append(error_array, error)
-
+# time_array = np.array([])
+# error_array = np.array([])
+# matrix_size = 5 #50
+# iteration_num = 1000
+# iter_round = 200
+# for i in range(iteration_num):
+#     A = generate_graph(matrix_size)
+#     B = copy.deepcopy(A)
+#     time_start = time.time()
+#     power_method(A, matrix_size, iter_round)
+#     time_end = time.time()
+#     # print('time cost: ', time_diff)
+#     time_array = np.append(time_array, time_end-time_start)
+#     # error_array = np.append(error_array, error)
+#
 # plt.figure(1)
 # plt.plot(range(iteration_num), time_array, 'r')
 # plt.plot(range(iteration_num), np.ones(iteration_num) * np.mean(time_array), 'y')
-# plt.ylim(0.01, 0.03)
-# plt.text(0.4 * iteration_num, 0.015, 'Power Method, Random Matrix')
-# plt.text(0.4 * iteration_num, 0.014, 'mean: ' + str(np.mean(time_array)) + ' s')
-# plt.text(0.4 * iteration_num, 0.013, 'variance: ' + str(np.var(time_array)))
+# # plt.ylim(0, 0.008)
+# # plt.text(0.4 * iteration_num, 0.007, 'Power Method, Random Matrix')
+# # plt.text(0.4 * iteration_num, 0.006, 'mean: ' + str(np.mean(time_array)) + ' s')
+# # plt.text(0.4 * iteration_num, 0.005, 'variance: ' + str(np.var(time_array)))
 # plt.xlabel('Iteration Number')
 # plt.ylabel('Running Time (S)')
 # plt.title('Running Time VS Iteration')
+# print('mean: ', np.mean(time_array))
+# print('var: ', np.var(time_array))
 
-time_array = np.array([])
-error_array2 = np.array([])
-matrix_size = 50 #50
-iteration_num = 1000
-iter_round = 10
-for i in range(iteration_num):
-    A = generate_graph(matrix_size)
-    B = copy.deepcopy(A)
-    time_diff, error_array2 = power_method(A, matrix_size, iter_round)
-    # print('time cost: ', time_diff)
-    time_array = np.append(time_array, time_diff)
-    # error_array2 = np.append(error_array2, error2)
+# time_array = np.array([])
+# error_array2 = np.array([])
+# matrix_size = 50 #50
+# iteration_num = 1000
+# iter_round = 10
+# for i in range(iteration_num):
+#     A = generate_graph(matrix_size)
+#     B = copy.deepcopy(A)
+#     time_diff, error_array2 = power_method(A, matrix_size, iter_round)
+#     # print('time cost: ', time_diff)
+#     time_array = np.append(time_array, time_diff)
+#     # error_array2 = np.append(error_array2, error2)
+#
+# time_array = np.array([])
+# error_array3 = np.array([])
+# matrix_size = 50 #50
+# iteration_num = 1000
+# iter_round = 10
+# for i in range(iteration_num):
+#     A = generate_graph(matrix_size)
+#     B = copy.deepcopy(A)
+#     time_diff, error_array3 = power_method(A, matrix_size, iter_round)
+#     # print('time cost: ', time_diff)
+#     time_array = np.append(time_array, time_diff)
+#     # error_array3 = np.append(error_array3, error3)
+#
+# time_array = np.array([])
+# error_array4 = np.array([])
+# matrix_size = 50 #50
+# iteration_num = 1000
+# iter_round = 10
+# for i in range(iteration_num):
+#     A = generate_graph(matrix_size)
+#     B = copy.deepcopy(A)
+#     time_diff, error_array4 = power_method(A, matrix_size, iter_round)
+#     # print('time cost: ', time_diff)
+#     time_array = np.append(time_array, time_diff)
+#     # error_array4 = np.append(error_array4, error4)
+#
+# time_array = np.array([])
+# error_array5 = np.array([])
+# matrix_size = 50 #50
+# iteration_num = 1000
+# iter_round = 10
+# for i in range(iteration_num):
+#     A = generate_graph(matrix_size)
+#     B = copy.deepcopy(A)
+#     time_diff, error_array5 = power_method(A, matrix_size, iter_round)
+#     # print('time cost: ', time_diff)
+#     time_array = np.append(time_array, time_diff)
+#     # error_array5 = np.append(error_array5, error5)
 
-time_array = np.array([])
-error_array3 = np.array([])
-matrix_size = 50 #50
-iteration_num = 1000
-iter_round = 10
-for i in range(iteration_num):
-    A = generate_graph(matrix_size)
-    B = copy.deepcopy(A)
-    time_diff, error_array3 = power_method(A, matrix_size, iter_round)
-    # print('time cost: ', time_diff)
-    time_array = np.append(time_array, time_diff)
-    # error_array3 = np.append(error_array3, error3)
+# plt.figure(2)
+# plt.plot(range(iter_round), error_array, 'b')
+# plt.plot(range(iter_round), error_array, 'bo')
+# plt.plot(range(iter_round), error_array2, 'r')
+# plt.plot(range(iter_round), error_array2, 'ro')
+# plt.plot(range(iter_round), error_array3, 'y')
+# plt.plot(range(iter_round), error_array3, 'yo')
+# plt.plot(range(iter_round), error_array4, 'g')
+# plt.plot(range(iter_round), error_array4, 'go')
+# plt.plot(range(iter_round), error_array5, 'm')
+# plt.plot(range(iter_round), error_array5, 'mo')
+# plt.xlabel('Iteration Number')
+# plt.ylabel('Error')
+# plt.title('Error VS Iteration')
+# plt.show()
 
-time_array = np.array([])
-error_array4 = np.array([])
-matrix_size = 50 #50
-iteration_num = 1000
-iter_round = 10
-for i in range(iteration_num):
-    A = generate_graph(matrix_size)
-    B = copy.deepcopy(A)
-    time_diff, error_array4 = power_method(A, matrix_size, iter_round)
-    # print('time cost: ', time_diff)
-    time_array = np.append(time_array, time_diff)
-    # error_array4 = np.append(error_array4, error4)
-
-time_array = np.array([])
-error_array5 = np.array([])
-matrix_size = 50 #50
-iteration_num = 1000
-iter_round = 10
-for i in range(iteration_num):
-    A = generate_graph(matrix_size)
-    B = copy.deepcopy(A)
-    time_diff, error_array5 = power_method(A, matrix_size, iter_round)
-    # print('time cost: ', time_diff)
-    time_array = np.append(time_array, time_diff)
-    # error_array5 = np.append(error_array5, error5)
-
-plt.figure(2)
-plt.plot(range(iter_round), error_array, 'b')
-plt.plot(range(iter_round), error_array, 'bo')
-plt.plot(range(iter_round), error_array2, 'r')
-plt.plot(range(iter_round), error_array2, 'ro')
-plt.plot(range(iter_round), error_array3, 'y')
-plt.plot(range(iter_round), error_array3, 'yo')
-plt.plot(range(iter_round), error_array4, 'g')
-plt.plot(range(iter_round), error_array4, 'go')
-plt.plot(range(iter_round), error_array5, 'm')
-plt.plot(range(iter_round), error_array5, 'mo')
-plt.xlabel('Iteration Number')
-plt.ylabel('Error')
-plt.title('Error VS Iteration')
-plt.show()
-
-print('average time cost: ', np.mean(time_array))
+# print('average time cost: ', np.mean(time_array))
 
 # # Test for matrix size
 # time_array = np.array([])
@@ -514,32 +518,39 @@ print('average time cost: ', np.mean(time_array))
 # plt.title('Running Time VS Matrix Size')
 # plt.show()
 
-print("\n############# This is question 1 #################\n\n")
+# print("\n############# This is question 1 #################\n\n")
 
 # print("\n############# This is question 2 #################\n")
 # A_Real = generate_graph_symmetric(matrix_size)
 # power_method_realmat(A_Real, matrix_size)
-#
+
 # time_array = np.array([])
 # error_array = np.array([])
 # # iteration_num = 100
 # for i in range(iteration_num):
 #     A_Real = generate_graph_symmetric(matrix_size)
-#     time_diff, error = power_method_realmat(A_Real, matrix_size)
+#     time_start = time.time()
+#     power_method_realmat(A_Real, matrix_size)
+#     time_end = time.time()
 #     # print('time cost: ', time_diff)
-#     time_array = np.append(time_array, time_diff)
-#     error_array = np.append(error_array, error)
-#
-# plt.figure(1)
-# plt.plot(range(iteration_num), time_array, 'g')
-# plt.plot(range(iteration_num), np.ones(iteration_num) * np.mean(time_array), 'b')
-# plt.text(0.4 * iteration_num, 0.004, 'Power Method, General Real Matrix')
-# plt.text(0.4 * iteration_num, 0.003, 'mean: ' + str(np.mean(time_array)) + ' s')
-# plt.text(0.4 * iteration_num, 0.002, 'variance: ' + str(np.var(time_array)))
+#     time_array = np.append(time_array, time_end-time_start)
+#     # error_array = np.append(error_array, error)
 #
 # plt.figure(2)
+# plt.plot(range(iteration_num), time_array, 'g')
+# plt.plot(range(iteration_num), np.ones(iteration_num) * np.mean(time_array), 'b')
+# # plt.text(0.4 * iteration_num, 0.004, 'Power Method, General Real Matrix')
+# # plt.text(0.4 * iteration_num, 0.003, 'mean: ' + str(np.mean(time_array)) + ' s')
+# # plt.text(0.4 * iteration_num, 0.002, 'variance: ' + str(np.var(time_array)))
+# plt.xlabel('Iteration Number')
+# plt.ylabel('Running Time (S)')
+# plt.title('Running Time VS Iteration')
+# print('mean: ', np.mean(time_array))
+# print('var: ', np.var(time_array))
+
+# plt.figure(2)
 # plt.plot(range(iteration_num), error_array, 'g')
-#
+
 # plt.show()
 #
 # print('average time cost: ', np.mean(time_array))
@@ -594,3 +605,41 @@ print("\n############# This is question 1 #################\n\n")
 # print("\n############# This is SOR #################\n")
 # SOR(A, n, iteration)
 # print("\n############# This is SOR #################\n\n")
+
+# iter = 100
+# num_random = 0
+#
+# for i in range(iter):
+#     time_array = np.array([])
+#     error_array = np.array([])
+#     matrix_size = 5 #50
+#     iteration_num = 100
+#     iter_round = 200
+#     for i in range(iteration_num):
+#         A = generate_graph(matrix_size)
+#         B = copy.deepcopy(A)
+#         time_start = time.time()
+#         power_method(A, matrix_size, iter_round)
+#         time_end = time.time()
+#         # print('time cost: ', time_diff)
+#         time_array = np.append(time_array, time_end-time_start)
+#
+#     var_random = np.var(time_array)
+#
+#     time_array = np.array([])
+#     error_array = np.array([])
+#     # iteration_num = 100
+#     for i in range(iteration_num):
+#         A_Real = generate_graph_symmetric(matrix_size)
+#         time_start = time.time()
+#         power_method_realmat(A_Real, matrix_size)
+#         time_end = time.time()
+#         # print('time cost: ', time_diff)
+#         time_array = np.append(time_array, time_end-time_start)
+#
+#     var_sym = np.var(time_array)
+#
+#     if var_random >= var_sym:
+#         num_random += 1
+# print('var(random)/var(sym): ', num_random/iter)
+
