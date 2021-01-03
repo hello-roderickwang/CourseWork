@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="db5a5f3a-0c64-4b07-bab8-d34f07bb715a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/CS510 Presentation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 Time vs Size(20-40:100).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 Time vs Size(200:20).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 Time vs Size(200:20)2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 Time vs Size(power vs 3).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 Var vs Size(20-40:100).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 Var vs Size(200:20).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 Var vs Size(200:20)2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 log(Time) vs Size(20-40:100).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 log(Time) vs Size(200:20).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q1 log(Time) vs Size(200:20)2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q2 Time vs Iter(random 200).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q2 Time vs Iter(sym 200).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q3 Error vs Size(20iter).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q3 Time vs Size(2-4 100times).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q3 Time vs Size(2-5 100times).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q3 Time vs Size(2-6 100times).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q3 Time vs Size(20iter).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q3 Var vs Size(2-5 100times).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/Q3 Var vs Size(2-6 100times).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/RRT.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/ProjectsCS510.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/ProjectsCS510.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/project3.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/project3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/project3_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../CS510 Numerical Analysis/Project/project3_update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rrt.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrt.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="1UWl97Ji0opmtuqS2lsB1rTAGnJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db5a5f3a-0c64-4b07-bab8-d34f07bb715a" name="Default Changelist" comment="" />
+      <created>1575480077692</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575480077692</updated>
+      <workItem from="1575480079339" duration="2894000" />
+      <workItem from="1575566465548" duration="59000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
