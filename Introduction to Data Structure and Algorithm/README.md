@@ -2,4 +2,4 @@
 
 Course Number: CS512
 
-Lectured By: Antonio Miranda
+Lectured By: Prof. Antonio Miranda

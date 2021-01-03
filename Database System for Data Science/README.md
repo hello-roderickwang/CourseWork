@@ -2,4 +2,4 @@
 
 Course Number: CS527
 
-Lectured By: Saed Sayad
+Lectured By: Prof. Saed Sayad

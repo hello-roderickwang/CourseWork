@@ -2,4 +2,4 @@
 
 Course Number: CS672
 
-Lectured By: Yipeng Huang
+Lectured By: Prof. Yipeng Huang

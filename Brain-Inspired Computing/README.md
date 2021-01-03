@@ -2,4 +2,4 @@
 
 Course Number: CS525
 
-Lectured By: Konstantino Michmizos
+Lectured By: Prof. Konstantino Michmizos

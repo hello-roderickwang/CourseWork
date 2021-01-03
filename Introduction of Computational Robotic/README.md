@@ -2,4 +2,4 @@
 
 Course Number: CS560
 
-Lectured By: Jingjin Yu
+Lectured By: Prof. Jingjin Yu
